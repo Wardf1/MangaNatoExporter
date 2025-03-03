@@ -25,7 +25,7 @@ This **Tampermonkey user script** exports bookmarks from **Natomanga.com**, fetc
 1. **Go to** [Natomanga Bookmark Page](https://www.natomanga.com/bookmark).
 2. Click the **📥 Export Bookmarks** button (appears at the bottom-right corner).
 3. The script will:
-   - Fetch all bookmarks 📑.
+   - Fetch all bookmarks with Currect and last Viewed Chapter 📑.
    - Retrieve the latest chapter release date from Mangadex 🔍.
    - Sort bookmarks from newest to oldest 🔄.
    - Generate a **JSON file** with all the sorted bookmarks 📥.
