@@ -34,11 +34,14 @@ This **Tampermonkey user script** exports bookmarks from **Natomanga.com**, fetc
 ## 📄 JSON File Format
 ```json
 [
-  {
-    "title": "Manga Title",
-    "lastUpdated": "MM-DD HH:MM",
-    "latestChapterDate": "YYYY-MM-DDTHH:MM:SSZ"
-  },
+    "title": "MangaTitle!",
+    "lastUpdated": "Last updated :\n                                        Date/Time",
+    "lastViewedChapter": "Last Viewed Chapter",
+    "lastViewedChapterUrl": "Last Viewed Chapter Link",
+    "currentChapter": "Last Current Chapter",
+    "currentChapterUrl": "Last Current Chapter Link",
+    "latestChapterDate": "MangaDex Last Current Chapter (for Sorting)"
+  }
   ...
 ]
 ```
