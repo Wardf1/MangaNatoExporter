@@ -18,7 +18,7 @@ This **Tampermonkey user script** exports bookmarks from **Natomanga.com**, fetc
 
 ### 2️⃣ Install the Script
 1. Open Tampermonkey and go to `Create a new script`.
-2. Copy and paste the code from [Natomanga Bookmark Exporter](https://github.com/Wardf1/MangaNatoExporter/blob/main/script.js).
+2. Copy and paste the code from [Natomanga Bookmark Exporter](https://github.com/Wardf1/MangaNatoExporter/blob/main/script.js) (script.js file).
 3. Click `File > Save`.
 
 ## 🚀 How to Use
