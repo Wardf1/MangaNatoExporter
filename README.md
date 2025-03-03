@@ -43,7 +43,8 @@ This **Tampermonkey user script** exports bookmarks from **Natomanga.com**, fetc
     "currentChapterUrl": "Last Current Chapter Link",
     "latestChapterDate": "MangaDex Last Current Chapter (for Sorting)"
   },
-  ...
+{...
+}
 ]
 ```
 
