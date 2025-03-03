@@ -34,6 +34,7 @@ This **Tampermonkey user script** exports bookmarks from **Natomanga.com**, fetc
 ## 📄 JSON File Format
 ```json
 [
+ {
     "title": "MangaTitle!",
     "lastUpdated": "Last updated :\n                                        Date/Time",
     "lastViewedChapter": "Last Viewed Chapter",
