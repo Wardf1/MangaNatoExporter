@@ -50,7 +50,7 @@ This **Tampermonkey user script** exports bookmarks from **Natomanga.com**, fetc
 
 ## 🛠️ Troubleshooting
 **Problem:** The button doesn't appear.  
-✅ **Solution:** Refresh the page or check if Tampermonkey is enabled.
+✅ **Solution:** Refresh the page or check if Tampermonkey with browser developer mode is enabled.
 
 **Problem:** The script freezes on `Fetching bookmarks...`.  
 ✅ **Solution:** Check your **network connection** or **reload the page**.
