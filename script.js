@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Natomanga Bookmark Exporter
 // @namespace    https://www.natomanga.com/
-// @version      1.0
-// @description  Exports bookmarks from natomanga.com, fetches the latest chapter release date from Mangadex, and sorts them from newest to oldest.
+// @version      1.4
+// @description  Exports bookmarks from natomanga.com, fetches the latest chapter release date from Mangadex, tracks last viewed chapter, and sorts them from newest to oldest.
 // @author       Wardf
 // @match        https://www.natomanga.com/bookmark*
 // @grant        GM_xmlhttpRequest
@@ -40,7 +40,7 @@
                     }
                     let parser = new DOMParser();
                     let doc = parser.parseFromString(response.responseText, 'text/html');
-                    let items = doc.querySelectorAll(".user-bookmark-item");
+                    let items = doc.querySelectorAll(".user-bookmark-item-right");
 
                     if (!items || items.length === 0) {
                         console.warn("No bookmarks found on page", page);
@@ -59,9 +59,32 @@
                         let title = titleElement.innerText.trim();
                         let lastUpdatedElement = item.querySelector(".chapter-datecreate");
 
+                        // Find spans with text content containing "Viewed" and "Current"
+                        let spans = item.querySelectorAll("span");
+                        let lastViewedElement = null;
+                        let currentChapterElement = null;
+
+                        spans.forEach(span => {
+                            if (span.textContent.includes("Viewed")) {
+                                lastViewedElement = span.querySelector("a");
+                            } else if (span.textContent.includes("Current")) {
+                                currentChapterElement = span.querySelector("a");
+                            }
+                        });
+
+                        let lastViewedChapter = lastViewedElement ? lastViewedElement.innerText.trim() : "Unknown";
+                        let lastViewedChapterUrl = lastViewedElement ? lastViewedElement.href : "#";
+
+                        let currentChapter = currentChapterElement ? currentChapterElement.innerText.trim() : "Unknown";
+                        let currentChapterUrl = currentChapterElement ? currentChapterElement.href : "#";
+
                         bookmarks.push({
                             title,
                             lastUpdated: lastUpdatedElement ? lastUpdatedElement.innerText.trim() : null,
+                            lastViewedChapter,
+                            lastViewedChapterUrl,
+                            currentChapter,
+                            currentChapterUrl,
                             latestChapterDate: null // Placeholder for latest chapter release date
                         });
                     });
@@ -178,6 +201,5 @@
         exportButton.onclick = getAllBookmarks;
         document.body.appendChild(exportButton);
     }
-
     window.addEventListener("load", addExportButton);
 })();
